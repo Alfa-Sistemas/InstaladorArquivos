@@ -1,0 +1,3 @@
+update c000061 set nfe_xml = replace (nfe_xml,  'C:\Mercurio\SERVER', 'E:\sistema\2\SERVER');
+update c000061 set nfe_canc_xml = replace (nfe_canc_xml,  'C:\Mercurio\SERVER', 'E:\sistema\2\SERVER');
+update c000061 set nfe_carta_xml = replace (nfe_carta_xml,  'C:\Mercurio\SERVER', 'E:\sistema\2\SERVER');

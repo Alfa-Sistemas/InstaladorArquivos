@@ -1,0 +1,1 @@
+update c000061 set c000061.nfe_xml = REPLACE(c000061.nfe_xml,'D:\sistema\Cliente\','C:\Mercurio\')

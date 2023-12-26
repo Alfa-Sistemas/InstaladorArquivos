@@ -1,0 +1,2 @@
+alter table c000004 add GERARDESCONTONOTA char(1);
+alter table c000004 add GERARFRETENOTA_PERCENTUAL numeric(15,2);

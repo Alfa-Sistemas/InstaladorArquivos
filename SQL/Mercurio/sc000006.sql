@@ -1,0 +1,14 @@
+CREATE TABLE C000130 (
+    CODIGO    VARCHAR(10),
+    COD_NOTA  VARCHAR(10),
+    CUF       VARCHAR(2),
+    CNPJ      VARCHAR(18),
+    IE        VARCHAR(20),
+    MODELO    VARCHAR(10),
+    SERIE     VARCHAR(10),
+    NNF       VARCHAR(10),
+    NECF      VARCHAR(10),
+    NCOO      VARCHAR(10),
+    DATA      DATE,
+    REF_NFE   VARCHAR(100)
+);

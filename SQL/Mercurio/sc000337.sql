@@ -1,0 +1,4 @@
+ALTER TABLE C000001 ADD MOVIMENTAR_ESTOQUE_APP SMALLINT;
+update c000001 set movimentar_estoque_app = 0;
+
+

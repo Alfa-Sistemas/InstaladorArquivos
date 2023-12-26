@@ -1,0 +1,49 @@
+22/08/2019
+LEONARDO ZANELLA / CILANDRO BES
+NOME DA TRIGGER: C000032_DEL
+
+SUBSTITUIR O CONTEUDO DA TRIGGER PELO DESCRITO ABAIXO QUANDO O CANCELAMENTO DE NF-E NAO VOLTA ESTOQUE DOS PRODUTOS:
+
+01: PRIMEIRO PROCEDIMENTO (ALTERACAO DOS COMANDOS):
+
+AS
+ BEGIN
+  if (old.lancado IS NULL OR old.lancado <> 1) then
+  BEGIN
+    if (old.movimento_estoque > 0) then
+     BEGIN
+        UPDATE c000100
+        SET entradas = entradas - old.movimento_estoque,
+        estoque_atual =  estoque_inicial + (entradas-old.movimento_estoque) - saidas
+        WHERE codproduto = old.codproduto;
+     END
+     else
+     BEGIN
+        UPDATE c000100
+        SET saidas = saidas  - (old.movimento_estoque*(-1)),
+        estoque_atual = estoque_inicial + entradas - (saidas  - (old.movimento_estoque*(-1)))
+        WHERE codproduto = old.codproduto;
+     END
+   END
+  else
+  BEGIN
+    if (old.movimento_estoque > 0) then
+     BEGIN
+        UPDATE c000100
+        SET estoque_inicial = estoque_inicial - old.movimento_estoque,
+        estoque_atual =  (estoque_inicial - old.movimento_estoque) + entradas - saidas
+        WHERE codproduto = old.codproduto;
+     END
+     else
+     BEGIN
+        UPDATE c000100
+        SET estoque_inicial = estoque_inicial  - (old.movimento_estoque*(-1)),
+        estoque_atual = (estoque_inicial  - (old.movimento_estoque*(-1))) + entradas - saidas
+        WHERE codproduto = old.codproduto;
+     END
+ END
+END
+
+02: SEGUNDO PROCEDIMENTO (AJUSTE DO ESTOQUE ATUAL):
+
+UPDATE C000100 SET ESTOQUE_ATUAL = ESTOQUE_INICIAL + ENTRADAS - SAIDAS

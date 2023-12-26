@@ -1,0 +1,7 @@
+sql para lancar movimento de vendas santo isidoro
+
+insert into c000048 (codigo,data,codcliente,codvendedor, total,subtotal,meio_crediario, obs,NUMERO_CUPOM_FISCAL)
+select codigo, data, codcliente, codvendedor, valor_produtos, valor_produtos, valor_produtos, obs1, numero from c000061
+
+insert into c000032 (codigo,       codnota,SERIAL,numeronota,codproduto,codbarra,qtde,unitario,total,desconto,aliquota,cfop,codcliente,                                                     data)
+select               CODLANCAMENTO,codIGO, SERIAL,codnota,   codproduto,codbarra,qtde,unitario,total,desconto,ICMS,    CFOP,(select codcliente from c000061 where codigo = c000062.codnota),(select data from c000061 where codigo = c000062.codnota) from c000062

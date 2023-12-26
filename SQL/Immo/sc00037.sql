@@ -1,0 +1,2 @@
+ALTER TABLE IMOVEIS ADD IM_PUBLICACAOIMPRESSA DM_CHAR_LOGICO DEFAULT 'N';
+update imoveis set im_publicacaoimpressa = 'N';

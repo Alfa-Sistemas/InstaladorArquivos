@@ -1,0 +1,1 @@
+DROP PROCEDURE st_cupom_item_temp_insert;

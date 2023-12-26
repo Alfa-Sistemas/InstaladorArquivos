@@ -1,0 +1,3 @@
+select c000021.codproduto, sum(estoque) as soma from c000021
+left outer join c000100 on c000100.codproduto=c000021.codproduto
+group by codproduto

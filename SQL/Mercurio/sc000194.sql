@@ -1,0 +1,52 @@
+CREATE TABLE C000049_EXCLUSOES (
+    CODIGO                VARCHAR(15) NOT NULL,
+    CODVENDA              VARCHAR(15),
+    CODVENDEDOR           VARCHAR(6),
+    CODCAIXA              VARCHAR(6),
+    CODCLIENTE            VARCHAR(6),
+    DATA_EMISSAO          DATE,
+    DATA_VENCIMENTO       DATE,
+    DATA_PAGAMENTO        DATE,
+    VALOR_ORIGINAL        NUMERIC(15,3),
+    VALOR_PAGO            NUMERIC(15,3),
+    VALOR_JUROS           NUMERIC(15,3),
+    VALOR_ATUAL           NUMERIC(15,3),
+    VALOR_DESCONTO        NUMERIC(15,2),
+    DOCUMENTO             VARCHAR(20),
+    TIPO                  VARCHAR(20),
+    SITUACAO              INTEGER,
+    FILTRO                INTEGER,
+    NOSSONUMERO           VARCHAR(30),
+    CODREGIAO             VARCHAR(6),
+    CODCEDENTE            VARCHAR(6),
+    P5                    NUMERIC(15,2),
+    P3                    NUMERIC(15,2),
+    NUMERO_CUPOM          VARCHAR(10),
+    VALOR_VENDA           NUMERIC(15,2),
+    COD_VENDA_ORIGINAL    VARCHAR(10),
+    VALOR_ATUAL_ANTERIOR  NUMERIC(15,2),
+    OBSERVACOES           BLOB SUB_TYPE 1 SEGMENT SIZE 1024,
+    REMESSANOME           VARCHAR(50),
+    BOLETO_MENSAGEM       VARCHAR(400),
+    BOLETO_INSTRUCOES_1   VARCHAR(80),
+    BOLETO_INSTRUCOES_2   VARCHAR(80),
+    BOLETO_INSTRUCOES_3   VARCHAR(80),
+    SITUACAO_BANCO        VARCHAR(10),
+    BOLETO_IMPRESSO       VARCHAR(1),
+    VALOR_TAXABANCARIA    NUMERIC(15,2),
+    COMISSAO              NUMERIC(15,3)
+);
+
+SET TERM #;
+CREATE OR ALTER TRIGGER C000049_EXCLUSOES FOR C000049
+ACTIVE AFTER DELETE POSITION 0
+AS
+begin
+   INSERT INTO C000049_EXCLUSOES (CODIGO, CODVENDA, CODVENDEDOR, CODCAIXA, CODCLIENTE, DATA_EMISSAO, DATA_VENCIMENTO, DATA_PAGAMENTO, VALOR_ORIGINAL, VALOR_PAGO, VALOR_JUROS, VALOR_ATUAL, VALOR_DESCONTO,
+   DOCUMENTO, TIPO, SITUACAO, FILTRO, NOSSONUMERO, CODREGIAO, CODCEDENTE, P5, P3, NUMERO_CUPOM, VALOR_VENDA, COD_VENDA_ORIGINAL, VALOR_ATUAL_ANTERIOR, OBSERVACOES, REMESSANOME, BOLETO_MENSAGEM,
+   BOLETO_INSTRUCOES_1, BOLETO_INSTRUCOES_2, BOLETO_INSTRUCOES_3, SITUACAO_BANCO, BOLETO_IMPRESSO, VALOR_TAXABANCARIA, COMISSAO)
+   VALUES(OLD.codigo, OLD.codvenda, OLD.codvendedor, OLD.codcaixa, OLD.codcliente, OLD.data_emissao, OLD.data_vencimento, OLD.data_pagamento, OLD.valor_original, OLD.valor_pago, OLD.valor_juros, OLD.valor_atual,
+   OLD.valor_desconto, OLD.documento, OLD.tipo, OLD.situacao, OLD.filtro, OLD.nossonumero, OLD.codregiao, OLD.codcedente, OLD.P5, OLD.p3, OLD.numero_cupom, OLD.valor_venda, OLD.cod_venda_original, OLD.valor_atual_anterior,
+   OLD.observacoes, OLD.remessanome, OLD.boleto_mensagem, OLD.boleto_instrucoes_1, OLD.boleto_instrucoes_2, OLD.boleto_instrucoes_3, OLD.situacao_banco, OLD.boleto_impresso, OLD.valor_taxabancaria, OLD.comissao);
+end#
+SET TERM ;#

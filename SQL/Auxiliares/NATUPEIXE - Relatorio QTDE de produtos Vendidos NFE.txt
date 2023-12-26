@@ -1,0 +1,11 @@
+SELECT C25.produto, C62.qtde, C61.numero AS Nota, c61.serie_nf as Serie FROM C000062 C62
+LEFT OUTER JOIN C000061 C61 ON C61.codigo = C62.codnota
+LEFT OUTER JOIN C000025 C25 ON C25.codigo = C62.codproduto
+
+WHERE C61.data >= '01-JAN-2020' AND (C61.data <= '31-JAN-2020')
+AND (C61.NFE_situacao = '6')
+AND (C61.movimento = 'S')
+AND (C62.cfop <> '5902')
+AND (C62.cfop <> '5904')
+
+ORDER BY C25.PRODUTO

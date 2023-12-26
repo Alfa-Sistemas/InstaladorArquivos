@@ -1,0 +1,10 @@
+ALTER TABLE NFCE ADD XML_ENVIADO VARCHAR(1) DEFAULT 'N' ;
+
+COMMENT ON COLUMN NFCE.XML_ENVIADO IS 'Este campo e utilizado pela plataforma do contador';
+
+ALTER TABLE C000068 ADD XML_ENVIADO VARCHAR(1) DEFAULT 'N' ;
+
+COMMENT ON COLUMN C000068.XML_ENVIADO IS 'Este campo e utilizado pela Plataforma do Contador';
+
+
+

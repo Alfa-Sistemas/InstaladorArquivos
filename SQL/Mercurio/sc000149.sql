@@ -1,0 +1,6 @@
+CREATE trigger exc_consignado_itens for consignado_itens active before delete position 0 AS begin INSERT INTO EXCLUSOES(TABELA, CODIGO, DATA_HORA, CODIGO_COMPOSTO, CODIGO_COMPOSTO2) VALUES('CONSIGNADO_ITENS', OLD.COD_CONSIGNADO, (select current_timestamp from rdb$database), OLD.cod_vendedor, OLD.codigo); end;
+CREATE trigger att_consignado_c000007 for consignado active before insert or update position 0 AS begin UPDATE C000007 SET COD_CONSIGNADO = NULL, ULTIMA_ALTERACAO = (select current_timestamp from rdb$database) WHERE COD_CONSIGNADO = new.codigo;  UPDATE C000007 SET COD_CONSIGNADO = NEW.codigo, ULTIMA_ALTERACAO = (select current_timestamp from rdb$database) WHERE CODIGO = NEW.cod_cliente; end;
+CREATE trigger exc_consignado_c000007 for consignado active before delete position 0 AS begin UPDATE C000007 SET COD_CONSIGNADO = NULL, ULTIMA_ALTERACAO = (select current_timestamp from rdb$database) WHERE CODIGO = OLD.cod_cliente; end;
+ALTER TABLE C000057 ADD QTDE_ENTREGUE NUMERIC(15,2);
+UPDATE C000057 SET QTDE_ENTREGUE = 0;
+ALTER TABLE C000061 ADD CONSIGNADO VARCHAR(1);

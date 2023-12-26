@@ -1,0 +1,29 @@
+SET TERM ~;
+
+CREATE OR ALTER TRIGGER C000075_PENDENTE_INSUPD
+ACTIVE AFTER INSERT OR UPDATE
+ON C000075
+AS
+BEGIN 
+	-- Marcar produtos e grades como pendente para evitar vender sem estoque
+	IF (NEW.CODPRODUTO IS NOT NULL) THEN
+		UPDATE C000025 SET ULTIMA_ALTERACAO =  (select current_timestamp from rdb$database)  WHERE CODIGO = NEW.CODPRODUTO;
+
+	IF (NEW.CODGRADE IS NOT NULL) THEN
+		UPDATE C000021 SET ULTIMA_ALTERACAO =  (select current_timestamp from rdb$database)  WHERE CODIGO = NEW.CODGRADE;
+END~
+
+CREATE OR ALTER TRIGGER C000075_PENDENTE_DEL
+ACTIVE AFTER DELETE
+ON C000075
+AS
+BEGIN 
+	-- Marcar produtos e grades como pendente para DEVOLVER o estoque
+	IF (OLD.CODPRODUTO IS NOT NULL) THEN
+		UPDATE C000025 SET ULTIMA_ALTERACAO =  (select current_timestamp from rdb$database)  WHERE CODIGO = OLD.CODPRODUTO;
+
+	IF (OLD.CODGRADE IS NOT NULL) THEN
+		UPDATE C000021 SET ULTIMA_ALTERACAO =  (select current_timestamp from rdb$database)  WHERE CODIGO = OLD.CODGRADE;
+END~
+
+SET TERM ;~

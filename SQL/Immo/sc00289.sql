@@ -1,0 +1,8 @@
+ALTER TABLE configuracoes_cobranca ADD CC_MULTAFORMA CHAR;
+ALTER TABLE configuracoes_cobranca ADD CC_MULTAPERC DECIMAL(15,4);
+ALTER TABLE configuracoes_cobranca ADD CC_MULTADIAS INTEGER;
+ALTER TABLE configuracoes_cobranca ADD CC_MULTAPERCDIA DECIMAL(15,2);
+ALTER TABLE configuracoes_cobranca ADD CC_MULTAAODIA CHAR;
+ALTER TABLE configuracoes_cobranca ADD CC_MULTALIMITE INTEGER;
+ALTER TABLE configuracoes_cobranca ADD CC_JUROSMORA DECIMAL(15,4);
+ALTER TABLE configuracoes_cobranca ADD CC_JUROSATEDIA INTEGER;

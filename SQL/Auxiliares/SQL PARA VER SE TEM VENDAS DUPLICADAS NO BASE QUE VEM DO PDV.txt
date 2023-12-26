@@ -1,0 +1,5 @@
+select numero_cupom_fiscal, count(numero_cupom_fiscal), CODCLIENTE
+from c000048
+WHERE (SITUACAO = 1) AND (numero_cupom_fiscal <> '')
+group by numero_cupom_fiscal, CODCLIENTE
+having count(numero_cupom_fiscal) > 1

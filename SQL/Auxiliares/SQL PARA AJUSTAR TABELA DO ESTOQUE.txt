@@ -1,0 +1,2 @@
+update c000100 set estoque_inicial = 0 where estoque_inicial is null;
+update c000100 set estoque_atual = estoque_inicial + entradas - saidas;

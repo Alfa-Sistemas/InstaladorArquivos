@@ -1,0 +1,1 @@
+update agendatelefonica set AG_FONECELULAR = lpad(AG_FONECELULAR, 2, '0') || ' ' || cast(substring(AG_FONECELULAR from 3 for 8) as varchar(8));

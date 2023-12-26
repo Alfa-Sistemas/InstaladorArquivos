@@ -1,0 +1,42 @@
+SET TERM ~;
+
+CREATE TRIGGER C000005_INS FOR C000005 AFTER INSERT
+AS
+BEGIN
+    IF ( (SELECT COUNT(*) FROM PENDENTE WHERE TABELA = 'C000005' AND COD_TABELA = NEW.CODIGO) = 0 ) THEN
+        /*se nao estiver na tabela pendente, cadastra*/
+        INSERT INTO PENDENTE(TABELA, COD_TABELA, ACAO, SERVIDORPDV, TRAYAPI)
+        VALUES              ('C000005', NEW.CODIGO, 'INSERT', '', 0);
+    ELSE
+        /*se estiver na tabela pendente, atualiza*/
+        UPDATE PENDENTE SET ACAO = 'INSERT', ServidorPDV = '', TrayAPI = 0
+        WHERE TABELA = 'C000005' AND COD_TABELA = NEW.CODIGO;
+END~
+
+CREATE TRIGGER C000005_UPD FOR C000005 AFTER UPDATE
+AS
+BEGIN
+    IF ( (SELECT COUNT(*) FROM PENDENTE WHERE TABELA = 'C000005' AND COD_TABELA = NEW.CODIGO) = 0 ) THEN
+        /*se nao estiver na tabela pendente, cadastra*/
+        INSERT INTO PENDENTE(TABELA, COD_TABELA, ACAO, SERVIDORPDV, TRAYAPI)
+        VALUES              ('C000005', NEW.CODIGO, 'UPDATE', '', 0);
+    ELSE
+        /*se estiver na tabela pendente, atualiza*/
+        UPDATE PENDENTE SET ACAO = 'UPDATE', ServidorPDV = '', TrayAPI = 0
+        WHERE TABELA = 'C000005' AND COD_TABELA = NEW.CODIGO;
+END~
+
+CREATE TRIGGER C000005_DEL FOR C000005 AFTER DELETE
+AS
+BEGIN
+    IF ( (SELECT COUNT(*) FROM PENDENTE WHERE TABELA = 'C000005' AND COD_TABELA = OLD.CODIGO) = 0 ) THEN
+        /*se nao estiver na tabela pendente, cadastra*/
+        INSERT INTO PENDENTE(TABELA, COD_TABELA, ACAO, SERVIDORPDV, TRAYAPI)
+        VALUES              ('C000005', OLD.CODIGO, 'DELETE', '', 0);
+    ELSE
+        /*se estiver na tabela pendente, atualiza*/
+        UPDATE PENDENTE SET ACAO = 'DELETE', ServidorPDV = '', TrayAPI = 0
+        WHERE TABELA = 'C000005' AND COD_TABELA = OLD.CODIGO;
+END~
+
+SET TERM ;~
