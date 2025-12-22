@@ -1,0 +1,18 @@
+alter table ESTOQUE add is_cst VARCHAR(3);
+alter table ESTOQUE add is_cclasstrib VARCHAR(6);
+alter table ESTOQUE add is_p NUMERIC(15,4) DEFAULT 0;
+alter table ESTOQUE add is_pespec NUMERIC(15,4) DEFAULT 0;
+alter table ESTOQUE add ibscbs_cst VARCHAR(3);
+alter table ESTOQUE add ibscbs_cclasstrib VARCHAR(6);
+alter table ESTOQUE add ibs_uf_p NUMERIC(15,4) DEFAULT 0;
+alter table ESTOQUE add ibs_uf_pdif NUMERIC(15,4) DEFAULT 0;
+alter table ESTOQUE add ibs_uf_predaliq NUMERIC(15,4) DEFAULT 0;
+alter table ESTOQUE add ibs_uf_paliqefet NUMERIC(15,4) DEFAULT 0;
+alter table ESTOQUE add ibs_mun_p NUMERIC(15,4) DEFAULT 0;
+alter table ESTOQUE add ibs_mun_pdif NUMERIC(15,4) DEFAULT 0;
+alter table ESTOQUE add ibs_mun_predaliq NUMERIC(15,4) DEFAULT 0;
+alter table ESTOQUE add ibs_mun_paliqefet NUMERIC(15,4) DEFAULT 0;
+alter table ESTOQUE add cbs_p NUMERIC(15,4) DEFAULT 0;
+alter table ESTOQUE add cbs_pdif NUMERIC(15,4) DEFAULT 0;
+alter table ESTOQUE add cbs_predaliq NUMERIC(15,4) DEFAULT 0;
+alter table ESTOQUE add cbs_paliqefet NUMERIC(15,2) DEFAULT 0;
