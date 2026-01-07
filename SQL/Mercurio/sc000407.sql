@@ -1,4 +1,3 @@
-SET TERM ^ ;
 alter table C000025 add is_cst VARCHAR(3);
 alter table C000025 add is_cclasstrib VARCHAR(6);
 alter table C000025 add is_p NUMERIC(15,4) DEFAULT 0;
@@ -17,9 +16,6 @@ alter table C000025 add cbs_p NUMERIC(15,4) DEFAULT 0;
 alter table C000025 add cbs_pdif NUMERIC(15,4) DEFAULT 0;
 alter table C000025 add cbs_predaliq NUMERIC(15,4) DEFAULT 0;
 alter table C000025 add cbs_paliqefet NUMERIC(15,2) DEFAULT 0;
-SET TERM ; ^
-
-SET TERM ^ ;
 alter table c000061 add total_is_v NUMERIC(15,2) DEFAULT 0;
 alter table c000061 add total_vbcibscbs NUMERIC(15,2) DEFAULT 0;
 alter table c000061 add total_ibs_v NUMERIC(15,2) DEFAULT 0;
@@ -45,9 +41,6 @@ alter table c000061 add total_mono_vcbsret NUMERIC(15,2) DEFAULT 0;
 alter table c000061 add total_estornocred_vibsestcred NUMERIC(15,2) DEFAULT 0;
 alter table c000061 add total_estornocred_vcbsestcred NUMERIC(15,2) DEFAULT 0;
 alter table c000061 add total_vnf NUMERIC(15,2) DEFAULT 0;
-SET TERM ; ^
-
-SET TERM ^ ;
 alter table C000062 add is_cst VARCHAR(3);
 alter table C000062 add is_cclasstrib VARCHAR(6);
 alter table C000062 add is_vbc NUMERIC(15,2) DEFAULT 0.0;
@@ -82,32 +75,6 @@ alter table C000062 add cbs_vdevtrib NUMERIC(15,2) DEFAULT 0.0;
 alter table C000062 add cbs_predaliq NUMERIC(15,4) DEFAULT 0.0;
 alter table C000062 add cbs_paliqefet NUMERIC(15,2) DEFAULT 0.0;
 alter table C000062 add cbs_v NUMERIC(15,2) DEFAULT 0.0;
-SET TERM ; ^
-
-SET TERM ^ ;
-ALTER TABLE C000083 ADD TIPO VARCHAR(2);
-
-INSERT INTO C000083 (CODIGO, SITUACAO, TIPO) VALUES ('000', 'Tributação integral', 'rt');
-INSERT INTO C000083 (CODIGO, SITUACAO, TIPO) VALUES ('010', 'Tributação com alíquotas uniformes', 'rt');
-INSERT INTO C000083 (CODIGO, SITUACAO, TIPO) VALUES ('011', 'Tributação com alíquotas uniformes reduzidas', 'rt');
-INSERT INTO C000083 (CODIGO, SITUACAO, TIPO) VALUES ('200', 'Alíquota reduzida', 'rt');
-INSERT INTO C000083 (CODIGO, SITUACAO, TIPO) VALUES ('220', 'Alíquota fixa', 'rt');
-INSERT INTO C000083 (CODIGO, SITUACAO, TIPO) VALUES ('221', 'Alíquota fixa proporcional', 'rt');
-INSERT INTO C000083 (CODIGO, SITUACAO, TIPO) VALUES ('222', 'Redução de Base de Cálculo', 'rt');
-INSERT INTO C000083 (CODIGO, SITUACAO, TIPO) VALUES ('400', 'Isenção', 'rt');
-INSERT INTO C000083 (CODIGO, SITUACAO, TIPO) VALUES ('410', 'Imunidade e não incidência', 'rt');
-INSERT INTO C000083 (CODIGO, SITUACAO, TIPO) VALUES ('510', 'Diferimento', 'rt');
-INSERT INTO C000083 (CODIGO, SITUACAO, TIPO) VALUES ('515', 'Diferimento com redução de alíquota', 'rt');
-INSERT INTO C000083 (CODIGO, SITUACAO, TIPO) VALUES ('550', 'Suspensão', 'rt');
-INSERT INTO C000083 (CODIGO, SITUACAO, TIPO) VALUES ('620', 'Tributação Monofásica', 'rt');
-INSERT INTO C000083 (CODIGO, SITUACAO, TIPO) VALUES ('800', 'Transferência de crédito', 'rt');
-INSERT INTO C000083 (CODIGO, SITUACAO, TIPO) VALUES ('810', 'Ajuste de IBS na ZFM', 'rt');
-INSERT INTO C000083 (CODIGO, SITUACAO, TIPO) VALUES ('811', 'Ajustes', 'rt');
-INSERT INTO C000083 (CODIGO, SITUACAO, TIPO) VALUES ('820', 'Tributação em declaração de regime específico', 'rt');
-INSERT INTO C000083 (CODIGO, SITUACAO, TIPO) VALUES ('830', 'Exclusão da Base de Cálculo', 'rt');
-SET TERM ; ^
-
-SET TERM ^ ;
 alter table NFCE add total_is_v NUMERIC(15,2) DEFAULT 0;
 alter table NFCE add total_vbcibscbs NUMERIC(15,2) DEFAULT 0;
 alter table NFCE add total_ibs_v NUMERIC(15,2) DEFAULT 0;
@@ -133,9 +100,6 @@ alter table NFCE add total_mono_vcbsret NUMERIC(15,2) DEFAULT 0;
 alter table NFCE add total_estornocred_vibsestcred NUMERIC(15,2) DEFAULT 0;
 alter table NFCE add total_estornocred_vcbsestcred NUMERIC(15,2) DEFAULT 0;
 alter table NFCE add total_vnf NUMERIC(15,2) DEFAULT 0;
-SET TERM ; ^
-
-SET TERM ^ ;
 alter table NFCEITENS add is_cst VARCHAR(3);
 alter table NFCEITENS add is_cclasstrib VARCHAR(6);
 alter table NFCEITENS add is_vbc NUMERIC(15,2) DEFAULT 0.0;
@@ -170,5 +134,3 @@ alter table NFCEITENS add cbs_vdevtrib NUMERIC(15,2) DEFAULT 0.0;
 alter table NFCEITENS add cbs_predaliq NUMERIC(15,4) DEFAULT 0.0;
 alter table NFCEITENS add cbs_paliqefet NUMERIC(15,2) DEFAULT 0.0;
 alter table NFCEITENS add cbs_v NUMERIC(15,2) DEFAULT 0.0;
-SET TERM ; ^
-
