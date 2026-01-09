@@ -1,0 +1,18 @@
+UPDATE C000083 SET SITUACAO = 'Tributacao integral' WHERE CODIGO = '000' AND TIPO = 'rt';
+UPDATE C000083 SET SITUACAO = 'Tributacao com aliquotas uniformes' WHERE CODIGO = '010' AND TIPO = 'rt';
+UPDATE C000083 SET SITUACAO = 'Tributacao com aliquotas uniformes reduzidas' WHERE CODIGO = '011' AND TIPO = 'rt';
+UPDATE C000083 SET SITUACAO = 'Aliquota reduzida' WHERE CODIGO = '200' AND TIPO = 'rt';
+UPDATE C000083 SET SITUACAO = 'Aliquota fixa' WHERE CODIGO = '220' AND TIPO = 'rt';
+UPDATE C000083 SET SITUACAO = 'Aliquota fixa proporcional' WHERE CODIGO = '221' AND TIPO = 'rt';
+UPDATE C000083 SET SITUACAO = 'Reducao de Base de Calculo' WHERE CODIGO = '222' AND TIPO = 'rt';
+UPDATE C000083 SET SITUACAO = 'Isencao' WHERE CODIGO = '400' AND TIPO = 'rt';
+UPDATE C000083 SET SITUACAO = 'Imunidade e nao incidencia' WHERE CODIGO = '410' AND TIPO = 'rt';
+UPDATE C000083 SET SITUACAO = 'Diferimento' WHERE CODIGO = '510' AND TIPO = 'rt';
+UPDATE C000083 SET SITUACAO = 'Diferimento com reducao de aliquota' WHERE CODIGO = '515' AND TIPO = 'rt';
+UPDATE C000083 SET SITUACAO = 'Suspensao' WHERE CODIGO = '550' AND TIPO = 'rt';
+UPDATE C000083 SET SITUACAO = 'Tributacao Monofasica' WHERE CODIGO = '620' AND TIPO = 'rt';
+UPDATE C000083 SET SITUACAO = 'Transferencia de credito' WHERE CODIGO = '800' AND TIPO = 'rt';
+UPDATE C000083 SET SITUACAO = 'Ajuste de IBS na ZFM' WHERE CODIGO = '810' AND TIPO = 'rt';
+UPDATE C000083 SET SITUACAO = 'Ajustes' WHERE CODIGO = '811' AND TIPO = 'rt';
+UPDATE C000083 SET SITUACAO = 'Tributacao em declaracao de regime especifico' WHERE CODIGO = '820' AND TIPO = 'rt';
+UPDATE C000083 SET SITUACAO = 'Exclusao da Base de Cálculo' WHERE CODIGO = '830' AND TIPO = 'rt';
