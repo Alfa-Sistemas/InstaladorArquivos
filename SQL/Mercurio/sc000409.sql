@@ -1,7 +1,5 @@
 DROP TRIGGER ATUALIZAR_CABECALHO_NFE;
 
-SET TERM ^ ;
-
 CREATE TRIGGER ATUALIZAR_CABECALHO_NFE FOR C000062 AFTER INSERT OR UPDATE OR DELETE
 AS
     DECLARE VARIABLE nfQtdeItens Integer;
@@ -14,18 +12,18 @@ AS
     DECLARE VARIABLE nfPis numeric(13, 5);
     DECLARE VARIABLE nfCofins numeric(13, 5);
     DECLARE VARIABLE nfValorICMS numeric(13, 5);
-	DECLARE VARIABLE nfIbsCbsBaseCalculo numeric(13, 5);
-	DECLARE VARIABLE nfIbsUfDiferenca numeric(13, 5);
-	DECLARE VARIABLE nfIbsUfDevTrib numeric(13, 5);
-	DECLARE VARIABLE nfIbsUfValor numeric(13, 5);
-	DECLARE VARIABLE nfIbsMunDiferenca numeric(13, 5);
-	DECLARE VARIABLE nfIbsMunDevTrib numeric(13, 5);
-	DECLARE VARIABLE nfIbsMunValor numeric(13, 5);
-	DECLARE VARIABLE nfIbsValor numeric(13, 5);
-	DECLARE VARIABLE nfCbsDiferenca numeric(13, 5);
-	DECLARE VARIABLE nfCbsDevTrib numeric(13, 5);
-	DECLARE VARIABLE nfCbsValor numeric(13, 5);
-	DECLARE VARIABLE nfTotalIbsCbs numeric(13, 5);
+    DECLARE VARIABLE nfIbsCbsBaseCalculo numeric(13, 5);
+    DECLARE VARIABLE nfIbsUfDiferenca numeric(13, 5);
+    DECLARE VARIABLE nfIbsUfDevTrib numeric(13, 5);
+    DECLARE VARIABLE nfIbsUfValor numeric(13, 5);
+    DECLARE VARIABLE nfIbsMunDiferenca numeric(13, 5);
+    DECLARE VARIABLE nfIbsMunDevTrib numeric(13, 5);
+    DECLARE VARIABLE nfIbsMunValor numeric(13, 5);
+    DECLARE VARIABLE nfIbsValor numeric(13, 5);
+    DECLARE VARIABLE nfCbsDiferenca numeric(13, 5);
+    DECLARE VARIABLE nfCbsDevTrib numeric(13, 5);
+    DECLARE VARIABLE nfCbsValor numeric(13, 5);
+    DECLARE VARIABLE nfTotalIbsCbs numeric(13, 5);
     DECLARE VARIABLE nfVol_Qtde numeric(13, 5);
     DECLARE VARIABLE nfPeso_Bruto numeric(13, 3);
     DECLARE VARIABLE nfPeso_liquido numeric(13, 3);
@@ -179,5 +177,3 @@ begin
           WHERE (CODIGO = :codNota);
         END
 END;
-
-SET TERM ; ^
